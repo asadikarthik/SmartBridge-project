@@ -1,0 +1,25 @@
+# Development Dockerfile with multi-target
+FROM node:18-alpine AS base
+
+# Install development dependencies
+RUN apk add --no-cache git
+
+WORKDIR /app
+
+# Backend development
+FROM base AS backend
+WORKDIR /app/backend
+COPY backend/package*.json ./
+RUN npm install
+COPY backend/ ./
+EXPOSE 5000
+CMD ["npm", "run", "dev"]
+
+# Frontend development  
+FROM base AS frontend
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "dev"]
