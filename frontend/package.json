@@ -54,6 +54,8 @@
     "react-qr-code": "^2.0.12",
     "react-resizable-panels": "^0.0.55",
     "react-router-dom": "^6.18.0",
+    "@react-three/fiber": "^9.1.2",
+    "@react-three/drei": "^10.1.2",
     "recharts": "^2.8.0",
     "sonner": "^1.2.0",
     "tailwind-merge": "^2.0.0",
